@@ -1,8 +1,8 @@
-# INSTAGRAM FOLLOWER BOOSTER - INSTAMODA
+# Best Instagram Followers Booster
 
 ![InstaModa](https://github.com/user-attachments/assets/b7273482-91a2-4ce5-af4a-747c4f36a36b)
 
-[InstaModa](https://github.com/RozhakXD/InstaModa) is a powerful Python tool designed to boost your Instagram followers swiftly and safely. It integrates with various services to deliver followers to your selected Instagram account, ensuring that your privacy is protected and your account remains secure throughout the process.
+[InstaModa](https://github.com/RozhakXD/InstaModa) is a Python-based tool crafted to enhance your Instagram followers quickly and securely. By utilizing multiple services, InstaModa efficiently delivers followers to your chosen Instagram account, all while safeguarding your privacy and maintaining account security.
 
 ## Features
 - **Secure Login**: Protect your primary account by using fake accounts for login. This approach ensures that your main account remains safe from any potential risks.
