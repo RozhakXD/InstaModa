@@ -44,9 +44,6 @@ If you find this project useful and would like to support its development, consi
 ## Screenshot
 ![FunPic_20240813](https://github.com/user-attachments/assets/28b49a03-0500-46c6-b273-c3d0170ecdab)
 
-## Usage Policy
-This tool is freely accessible to all users. However, please note that it cannot be sold or redistributed, and the authorship should not be altered. While this project is open source, it is important to adhere to these guidelines to respect the integrity and intentions of the original work.
-
 ## Disclaimer
 This tool is intended for educational purposes only. Use at your own risk. The creator is not responsible for any actions taken against your Instagram account.
 
