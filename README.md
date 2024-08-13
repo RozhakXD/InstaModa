@@ -1,14 +1,14 @@
-# InstaModa - Instagram Follower Booster
+# INSTAGRAM FOLLOWER BOOSTER - INSTAMODA
 
 ![InstaModa](https://github.com/user-attachments/assets/b7273482-91a2-4ce5-af4a-747c4f36a36b)
 
-InstaModa is a Python-based tool designed to safely and rapidly increase your Instagram followers. It leverages multiple services to send followers to a specified Instagram account, all while ensuring the security and anonymity of the user.
+[InstaModa](https://github.com/RozhakXD/InstaModa) is a powerful Python tool designed to boost your Instagram followers swiftly and safely. It integrates with various services to deliver followers to your selected Instagram account, ensuring that your privacy is protected and your account remains secure throughout the process.
 
 ## Features
-- **Safe and Secure**: Uses fake accounts to log in, ensuring your primary account remains protected.
-- **Fast Follower Delivery:** Sends followers quickly across multiple services.
-- **Error Handling**: Built-in error handling for login checkpoints, incorrect passwords, and connection issues.
-- **User-Friendly Interface**: Simple, console-based interface with clear instructions.
+- **Secure Login**: Protect your primary account by using fake accounts for login. This approach ensures that your main account remains safe from any potential risks.
+- **Rapid Follower Addition**: Quickly add followers through multiple services, allowing for fast and efficient results.
+- **Robust Error Handling**: The tool includes built-in mechanisms to handle various issues, such as login checkpoints, incorrect passwords, and connection problems, providing a smoother user experience.
+- **Intuitive Interface**: Enjoy a straightforward and user-friendly console interface with easy-to-follow instructions, making the tool accessible even for beginners.
 
 ## Requirements
 - [Python 3.x](https://www.microsoft.com/store/productId/9NRWMJP3717K?ocid=pdpshare)
@@ -31,8 +31,8 @@ $ python Run.py
 ```
 
 ## Issues and Solutions
-- **Login Failures**: If you experience login issues, try logging in manually on another device first. After successful login, retry the program.
 - **No Followers Added**: If no followers are added, the issue may be that the service you're using has no active users. Try a different service or wait and try again later.
+- **Login Failures**: If you experience login issues, try logging in manually on another device first. After successful login, retry the program.
 - **Followers Decreasing**: If followers decrease, it might be because their accounts were blocked or marked as spam by Instagram
 
 ## Support
