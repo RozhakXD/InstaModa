@@ -1,4 +1,4 @@
-# Best Instagram Followers Booster
+# BEST INSTAGRAM FOLLOWERS BOOSTER
 
 ![InstaModa](https://github.com/user-attachments/assets/b7273482-91a2-4ce5-af4a-747c4f36a36b)
 
