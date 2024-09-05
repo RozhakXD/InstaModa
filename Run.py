@@ -4,6 +4,7 @@ try:
     from rich.console import Console
     from rich.panel import Panel
     from rich import print as printf
+    from requests.exceptions import SSLError
 except (ModuleNotFoundError) as e:
     __import__('sys').exit(f"[Error] {str(e).capitalize()}!")
 
@@ -175,8 +176,16 @@ class MAIN:
                             INFORMASI().PENGIKUT(your_username=self.YOUR_USERNAME, updated=True)
                             CHECKPOINT.clear();BAD.clear();FAILED.clear()
                             for HOST in ['instamoda.org', 'takipcitime.com', 'takipcikrali.com', 'bigtakip.net', 'takipcimx.net']:
-                                with requests.Session() as session:
-                                    KIRIMKAN().PENGIKUT(session, self.USERNAME, self.PASSWORD, HOST, self.YOUR_USERNAME)
+                                try:
+                                    with requests.Session() as session:
+                                        KIRIMKAN().PENGIKUT(session, self.USERNAME, self.PASSWORD, HOST, self.YOUR_USERNAME)
+                                        continue
+                                except (SSLError):
+                                    FAILED.append(f'{HOST}')
+                                    BAD.append(f'{HOST}')
+                                    CHECKPOINT.append(f'{HOST}')
+                                    printf(f"[bold bright_black]   ──>[bold red] UNABLE TO CONNECT TO {str(HOST).split('.')[0].upper()} SERVICE!          ", end='\r')
+                                    time.sleep(2.5)
                                     continue
                             if len(CHECKPOINT) >= 5:
                                 printf(Panel(f"[italic red]Your Instagram account is hit by a checkpoint, please approve the login on another\ndevice, then try logging in again on this Program!", width=59, style="bold bright_black", title="[Login Checkpoint]"))
