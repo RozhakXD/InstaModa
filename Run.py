@@ -33,7 +33,7 @@ class KIRIMKAN:
             'Connection': 'keep-alive'
         })
         response = session.get('https://{}/login'.format(host))
-        self.ANTI_FORGERY_TOKEN = re.search('"&antiForgeryToken=(.*?)";', str(response.text))
+        self.ANTI_FORGERY_TOKEN = re.search(r'"&antiForgeryToken=(.*?)";', str(response.text))
         if self.ANTI_FORGERY_TOKEN != None:
             self.TOKEN = self.ANTI_FORGERY_TOKEN.group(1)
             session.headers.update({
@@ -64,7 +64,7 @@ class KIRIMKAN:
                 }
                 response3 = session.post('https://{}/tools/send-follower?formType=findUserID'.format(host), data = data)
                 if 'name="userID"' in str(response3.text):
-                    self.USER_ID = re.search('name="userID" value="(\d+)">', str(response3.text)).group(1)
+                    self.USER_ID = re.search(r'name="userID" value="(\d+)">', str(response3.text)).group(1)
                     session.headers.update({
                         'Cookie': '; '.join([str(key) + '=' + str(value) for key, value in session.cookies.get_dict().items()])
                     })
@@ -163,14 +163,14 @@ class MAIN:
         global CHECKPOINT, BAD, FAILED
         try:
             self.LOGO()
-            printf(Panel(f"[italic white]Please fill in your Instagram account details such as username and password, use `[italic red]:[italic white]` as a\nseparator, you must also use a fake account to log in!", width=59, style="bold bright_black", title="[Login Diperlukan]", subtitle="╭──────", subtitle_align="left"))
+            printf(Panel(f"[bold white]Please fill in your Instagram account details such as username and password, use `[bold red]:[bold white]` as a\nseparator, you must also use a fake account to log in!", width=59, style="bold bright_black", title="[bold bright_black][Login Diperlukan]", subtitle="[bold bright_black]╭──────", subtitle_align="left"))
             self.ACCOUNTS = Console().input("[bold bright_black]   ╰─> ")
             if ':' in str(self.ACCOUNTS):
                 self.USERNAME, self.PASSWORD = self.ACCOUNTS.split(':')[0], self.ACCOUNTS.split(':')[1]
-                printf(Panel(f"[italic white]Please fill in your Instagram account username, make sure the account is not locked and the\nusername is correct. Example:[italic green] @rozhak_official", width=59, style="bold bright_black", title="[Username]", subtitle="╭──────", subtitle_align="left"))
+                printf(Panel(f"[bold white]Please fill in your Instagram account username, make sure the account is not locked and the\nusername is correct. Example:[bold green] @rozhak_official", width=59, style="bold bright_black", title="[bold bright_black][Username]", subtitle="[bold bright_black]╭──────", subtitle_align="left"))
                 self.YOUR_USERNAME = Console().input("[bold bright_black]   ╰─> ").replace('@', '')
                 if len(self.YOUR_USERNAME) != 0:
-                    printf(Panel(f"[italic white]While sending followers, you can use[italic yellow] CTRL + C[italic white] if stuck and[italic red] CTRL + Z[italic white] if you want to stop,\nif an error occurs check the service and account!", width=59, style="bold bright_black", title="[Catatan]"))
+                    printf(Panel(f"[bold white]While sending followers, you can use[bold yellow] CTRL + C[bold white] if stuck and[bold red] CTRL + Z[bold white] if you want to stop,\nif an error occurs check the service and account!", width=59, style="bold bright_black", title="[bold bright_black][Catatan]"))
                     while (True):
                         try:
                             INFORMASI().PENGIKUT(your_username=self.YOUR_USERNAME, updated=True)
@@ -188,13 +188,13 @@ class MAIN:
                                     time.sleep(2.5)
                                     continue
                             if len(CHECKPOINT) >= 5:
-                                printf(Panel(f"[italic red]Your Instagram account is hit by a checkpoint, please approve the login on another\ndevice, then try logging in again on this Program!", width=59, style="bold bright_black", title="[Login Checkpoint]"))
+                                printf(Panel(f"[bold red]Your Instagram account is hit by a checkpoint, please approve the login on another\ndevice, then try logging in again on this Program!", width=59, style="bold bright_black", title="[bold bright_black][Login Checkpoint]"))
                                 sys.exit()
                             elif len(BAD) >= 5:
-                                printf(Panel(f"[italic red]Your Instagram account password is incorrect, remember not all accounts can log in here,\nwe do not recommend newly created accounts!", width=59, style="bold bright_black", title="[Login Gagal]"))
+                                printf(Panel(f"[bold red]Your Instagram account password is incorrect, remember not all accounts can log in here,\nwe do not recommend newly created accounts!", width=59, style="bold bright_black", title="[bold bright_black][Login Gagal]"))
                                 sys.exit()
                             elif len(FAILED) >= 5:
-                                printf(Panel(f"[italic red]An unknown error occurred while logging in, maybe the service is under maintenance\nor there is a problem with your Instagram account!", width=59, style="bold bright_black", title="[Login Error]"))
+                                printf(Panel(f"[bold red]An unknown error occurred while logging in, maybe the service is under maintenance\nor there is a problem with your Instagram account!", width=59, style="bold bright_black", title="[bold bright_black][Login Error]"))
                                 sys.exit()
                             else:
                                 if len(STATUS) != 0:
@@ -203,9 +203,9 @@ class MAIN:
                                         self.JUMLAH = INFORMASI().PENGIKUT(your_username=self.YOUR_USERNAME, updated=False)
                                     except (Exception):
                                         self.JUMLAH = ('null')
-                                    printf(Panel(f"""[bold white]Status :[italic green] Successfully sending followers![/]
+                                    printf(Panel(f"""[bold white]Status :[bold green] Successfully sending followers![/]
 [bold white]Link :[bold red] https://www.instagram.com/{str(self.YOUR_USERNAME)[:20]}
-[bold white]Jumlah :[bold yellow] {self.JUMLAH}""", width=59, style="bold bright_black", title="[Sukses]"))
+[bold white]Jumlah :[bold yellow] {self.JUMLAH}""", width=59, style="bold bright_black", title="[bold bright_black][Sukses]"))
                                     self.DELAY(0, 600, self.YOUR_USERNAME)
                                     STATUS.clear()
                                     continue
@@ -225,18 +225,18 @@ class MAIN:
                             time.sleep(5.5)
                             continue
                 else:
-                    printf(Panel(f"[italic red]You entered the wrong Instagram username, please check the username again,\nalso make sure the account is not locked!", width=59, style="bold bright_black", title="[Username Salah]"))
+                    printf(Panel(f"[bold red]You entered the wrong Instagram username, please check the username again,\nalso make sure the account is not locked!", width=59, style="bold bright_black", title="[bold bright_black][Username Salah]"))
                     sys.exit()
             else:
-                printf(Panel(f"[italic red]You did not fill in the account data correctly, make sure the username and password\nseparator is a colon, please try again!", width=59, style="bold bright_black", title="[Pemisah Salah]"))
+                printf(Panel(f"[bold red]You did not fill in the account data correctly, make sure the username and password\nseparator is a colon, please try again!", width=59, style="bold bright_black", title="[bold bright_black][Pemisah Salah]"))
                 sys.exit()
         except (Exception) as e:
-            printf(Panel(f"[italic red]{str(e).capitalize()}!", width=59, style="bold bright_black", title="[Error]"))
+            printf(Panel(f"[bold red]{str(e).capitalize()}!", width=59, style="bold bright_black", title="[bold bright_black][Error]"))
             sys.exit()
 
     def LOGO(self):
         os.system('cls' if os.name == 'nt' else 'clear')
-        printf(Panel("""[bold red] _____                      ______            _       
+        printf(Panel(r"""[bold red] _____                      ______            _       
 (_____)           _        |  ___ \          | |      
    _   ____   ___| |_  ____| | _ | | ___   _ | | ____ 
   | | |  _ \ /___)  _)/ _  | || || |/ _ \ / || |/ _  |
@@ -268,7 +268,7 @@ if __name__ == '__main__':
         os.system('git pull')
         MAIN()
     except (Exception) as e:
-        printf(Panel(f"[italic red]{str(e).capitalize()}!", width=59, style="bold bright_black", title="[Error]"))
+        printf(Panel(f"[bold red]{str(e).capitalize()}!", width=59, style="bold bright_black", title="[bold bright_black][Error]"))
         sys.exit()
     except (KeyboardInterrupt):
         sys.exit()
